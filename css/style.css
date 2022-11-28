@@ -1,0 +1,18 @@
+.riverRaid {
+  position: relative;
+  border: 2px solid var(--border);
+  flex: 1;
+  background: var(--background);
+  transition: background 0.2s;
+  overflow: hidden;
+  
+}
+#agua {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#canvas {
+ 
+}

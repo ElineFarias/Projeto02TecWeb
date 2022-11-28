@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UFT-8">
+  <link rel ="stylesheet" href="css/riverRaid.css">
+  <link rel ="stylesheet" href="css/main.css">
+  <link rel ="stylesheet" href="css/style.css">
+  <title>River Raid</title>
+</head>
+
+<body>
+  <h1 class="titleGame">River Raid</h1>
+    <div class="game">
+        <div class="configs">
+          <h1 onclick="test()">Configurações do jogo</h1>
+
+          <div class="formLine">
+            <span>Velocidade do jogo:</span>
+            <span class="selects">
+              1<input value="3" name="velocidade-do-jogo" type="range" min="1" max="10"
+                onchange="updateVelocidadeDoJogo()">10
+            </span>
+          </div>
+
+        <div class="formLine">
+            <span>Velocidade do Personagem:</span>
+            <span class="selects" onchange="updateVelocidadeDoPersonagem()">
+              <input type="radio" name="velocidade-do-personagem-radio" value="baixa"> Baixa
+              <input type="radio" name="velocidade-do-personagem-radio" value="media" checked> Média
+              <input type="radio" name="velocidade-do-personagem-radio" value="alta"> Alta
+            </span>
+          </div> 
+
+        <div class="formLine">
+            <span>Pontuacao:</span>
+            <span class="selects" onchange="updateIncrementoPontuacao()">
+              <input type="radio" name="pontuacao-radio" value="1" checked> 1
+              <input type="radio" name="pontuacao-radio" value="10"> 10
+              <input type="radio" name="pontuacao-radio" value="100"> 100
+            </span>
+          </div> 
+
+          <div>
+            <button type="button" class="pause-game">Pause Game</button>
+            <button type="button" class="resume-game">Resume Game</button>
+          </div>
+    
+        </div>
+
+        <div class="riverRaid" width="900" height="900">
+          <!-- O canvas  elemento tem apenas dois atributos: width e height -->
+          <canvas id="canvas" width="800" height="800"></canvas>
+          <canvas id="agua" width="800" height="800"></canvas>
+        </div>
+    </div>
+
+    <script src="js/constants.js"></script>
+    <script src="js/palette.js"></script>
+    <script src="js/sprites.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
