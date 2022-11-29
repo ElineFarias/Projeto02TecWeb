@@ -1,1 +1,2 @@
-TILE_SIZE = 45;
+TILE_SIZE = 47;
+

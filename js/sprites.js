@@ -2,7 +2,7 @@
 exports.SPRITES = {};
 
 //Desenho do nave
-exports.SPRITES.PLAYER = {
+exports.SPRITES.NAVE = {
   IDLE: {
     width: 20,
     height: 15,
@@ -119,6 +119,23 @@ exports.SPRITES.Recarga = {
       0,6,6,6,6,10,10,10,10,0,0,0,0,0,
       0,0,0,0,0,10,10,10,10,0,0,0,0,0,
       0,0,0,0,0,10,10,10,10,0,0,0,0,0,
+    ]
+  }
+};
+
+//Desenho do Ponto Extra
+exports.SPRITES.pontoExtra = {
+  IDLE: {
+    width: 10,
+    height: 7,
+    matrix: [
+      0,5,0,0,5,0,0,5,0,0,
+      0,0,5,0,5,0,5,0,0,0,              
+      0,0,0,5,5,5,0,0,0,0,
+      5,5,5,5,5,5,5,5,5,0,
+      0,0,0,5,5,5,0,0,0,0,
+      0,0,5,0,5,0,5,0,0,0,
+      0,5,0,0,5,0,0,5,0,0,
     ]
   }
 };

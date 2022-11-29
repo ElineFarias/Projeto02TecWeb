@@ -19,6 +19,7 @@ class Random {
     return Math.floor((x % (max - min + 1)) + min);
   }
 }
+
 Random.seed = 100;
 
 class Trasform {
@@ -182,22 +183,23 @@ class Component {
 }
 
 class Engine {
-  fps = 0;
+ // fps = 0;
   paused = false;
   /**
    * @type {CanvasRenderingContext2D}
    */
   context = null;
+
+  bordacontext = null;
   /**
    * @type {CanvasRenderingContext2D}
    */
-
-  constructor({ context }) {
+  constructor({ context,bordacontext}) {
     this.context = context;
+    this.bordacontext = bordacontext;
   }
 
   reset() {
-    this.fps = 0;
     this.paused = false;
   }
 
@@ -227,45 +229,41 @@ class Engine {
       this.start();
     }
   }
-
-  _executarProximo(fn) {
+  _executeLater(fn) {
     requestAnimationFrame(fn);
   }
-
+  
   _executeUpdateLoop() {
     const loop = () => {
       if (this.paused) return;
       Time.update();
-      this.fps = 1000 / Time.deltaTime;
-      this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
+      this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height); 
+      
+      Registry.getComponents().forEach((component) => {
+        const filteredComponents = new Map(
+          Array.from(Registry.getComponents()).filter(([key, value]) => {
+            return value !== component && !value.skipColision;
+          })
+        );
+        filteredComponents.forEach((otherComponent) => {
+          if (component === otherComponent) return;
+          const a = component.getBoxColider();
+          const b = otherComponent.getBoxColider();
 
-      // baixa prioridade
-      this._executarProximo(() => {
-
-        Registry.getComponents().forEach((component) => {
-          const filteredComponents = new Map(
-            Array.from(Registry.getComponents()).filter(([key, value]) => {
-              return value !== component && !value.skipColision;
-            })
-          );
-          filteredComponents.forEach((otherComponent) => {
-            if (component === otherComponent) return;
-            const a = component.getBoxColider();
-            const b = otherComponent.getBoxColider();
-
-            if (
-              a.x < b.x + b.width &&
-              a.x + a.width > b.x &&
-              a.y < b.y + b.height &&
-              a.height + a.y > b.y
-            ) {
-              component.onCollision(otherComponent);
-              otherComponent.onCollision(component);
-            }
-          });
+          if (
+            a.x < b.x + b.width &&
+            a.x + a.width > b.x &&
+            a.y < b.y + b.height &&
+            a.height + a.y > b.y
+          ) {
+            component.onCollision(otherComponent);
+            otherComponent.onCollision(component);
+          }
         });
       });
-
+     
+     
+     
       Registry.getComponents().forEach((component) => {
         component.update();
         const sprite = component.getSprite();
@@ -277,11 +275,7 @@ class Engine {
             component.transform.position.y - parentPosition.y,
             sprite.width * component.transform.scale.x,
             sprite.height * component.transform.scale.y
-          );
-
-          this._executarProximo(() => {
-          });
-        }
+          );}
       });
 
       requestAnimationFrame(loop);
@@ -290,4 +284,9 @@ class Engine {
     requestAnimationFrame(loop);
   }
 }
+
+
+
+
+
 
