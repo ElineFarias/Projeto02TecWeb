@@ -229,9 +229,7 @@ class Engine {
       this.start();
     }
   }
-  _executeLater(fn) {
-    requestAnimationFrame(fn);
-  }
+  
   
   _executeUpdateLoop() {
     const loop = () => {

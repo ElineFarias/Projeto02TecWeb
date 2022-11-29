@@ -3,7 +3,7 @@
   border: 2px solid var(--border);
   flex: 1;
   background: var(--background);
-  transition: background 0.2s;
+  /*transition: background 0.2s;*/
   overflow: hidden;
   
 }
@@ -14,8 +14,8 @@
 }
 
 #canvas {
-  border: 1px solid red;
+    /* border: 1px solid red;
   max-height: 400px;
   max-width: 400px;
-  padding:10px;
+  padding:10px; */
 }

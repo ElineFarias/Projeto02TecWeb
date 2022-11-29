@@ -173,28 +173,25 @@ class ParteMapa extends Component {
   // construção do cenário
   _build() {
     const frequencia = 0.068;
-    const seed = Random.range(-20, this._mapSize.width);
-    const halfMapWidth = this._mapSize.width/ 4;
+    const seed = Random.range(-50, this._mapSize.width);
+    const halfMapWidth = this._mapSize.width/5;
     
     for (let y = 0; y < this._mapSize.height; y++) {
-      const ruido = 0.7 + Math.abs(0.7 * (seed * frequencia, (y + seed) * frequencia));
+      const ruido = 0.5 + Math.abs(0.5 * (seed * frequencia, (y + seed) * frequencia));
       const ruidoWidth = Math.floor(ruido * halfMapWidth); // Math.floor : retorna o menor número
       //grama esquerda
       this._gerarDegrauGrama(new Coordenada(0, y * TILE_SIZE), ruidoWidth);
-      
-      // inimigos
-      if (y % 4 == 0) {
-        this._inimigo(new Coordenada((halfMapWidth + (halfMapWidth - ruidoWidth - 4) * 2) * TILE_SIZE, y * TILE_SIZE));
-      }
-
-        //Posto de combustível e elemento de ponto extra
-        if (y % 6 == 0) {
-          this._aliado(new Coordenada((halfMapWidth + (halfMapWidth - ruidoWidth)) * TILE_SIZE, y * TILE_SIZE));
+      //  grama meio and  inimigos and aliados
+      if (ruidoWidth < halfMapWidth && y < this._mapSize.height) {
+        this._gerarDegrauGrama(new Coordenada((ruidoWidth) * TILE_SIZE, y * TILE_SIZE), (halfMapWidth - ruidoWidth));
+        if (y % 4 == 0) {
+            this._inimigo(new Coordenada((3* halfMapWidth + (halfMapWidth - ruidoWidth - 2)) * TILE_SIZE, y * TILE_SIZE));
         }
-      
-      //  grama meio
-      if (ruidoWidth + 5 < halfMapWidth && y < this._mapSize.height - 3) {
-        this._gerarDegrauGrama(new Coordenada((ruidoWidth) * TILE_SIZE, y * TILE_SIZE), (halfMapWidth - ruidoWidth - 20) * 2);
+        if (y % 6 == 0) {
+            this._aliado(new Coordenada((halfMapWidth + (halfMapWidth - ruidoWidth)) * TILE_SIZE, y * TILE_SIZE));
+        }
+      }else {
+        this._gerarDegrauGrama(new Coordenada(0,0));
       }
 
       // grama a direita
