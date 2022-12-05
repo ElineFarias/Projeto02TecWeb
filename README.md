@@ -29,18 +29,11 @@ Aqui estão as tecnologias utilizadas neste projeto.
 
 ![Homepage image](./img/telaInicio.png)
 
-### 2 - Contato:
-
-![Portfolio](https://beacons.ai/elinefarias)
-![Portfolio](https://elinefarias.github.io/)
-
-
-## Features
-
-As principais  Features do projeto são:
- -
- - 
-
+### 2 - Como Jogar:
+ Utilize as teclas de navegação esquerda e direita do teclado para movimentar  a nave.
+ Ponto extra: Estrela(*).
+ Combustível
+ Inimigos: Helicopteros e navios.
 
 ## Links
   - Repository: https://github.com/ElineFarias/Projeto02TecWeb.git
