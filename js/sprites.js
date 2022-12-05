@@ -1,7 +1,6 @@
 (function (exports) {
 exports.SPRITES = {};
-
-//Desenho do nave
+//Desenho  nave
 exports.SPRITES.NAVE = {
   IDLE: {
     width: 20,

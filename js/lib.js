@@ -57,6 +57,7 @@ class Utils {
 }
 
 class Registry {
+  
   static components = new Map();
 
   static register(name, component) {
@@ -174,45 +175,36 @@ class Component {
 
   onCollision() {
   }
-
   start() {
   }
-
   update() {
   }
 }
 
 class Engine {
- // fps = 0;
   paused = false;
   /**
    * @type {CanvasRenderingContext2D}
    */
   context = null;
-
   bordacontext = null;
   /**
    * @type {CanvasRenderingContext2D}
    */
-  constructor({ context,bordacontext}) {
+  constructor({context,bordacontext}) {
     this.context = context;
     this.bordacontext = bordacontext;
-  }
-
-  reset() {
-    this.paused = false;
   }
 
   start() {
     if (!this.paused) {
       Input.listen();
-      this._executeUpdateLoop();
+      this. executeUpdateLoop();
     }
   }
 
   stop() {
     this.pause();
-    this.reset();
   }
 
   pause() {
@@ -229,9 +221,7 @@ class Engine {
       this.start();
     }
   }
-  
-  
-  _executeUpdateLoop() {
+   executeUpdateLoop() {
     const loop = () => {
       if (this.paused) return;
       Time.update();
@@ -243,10 +233,10 @@ class Engine {
             return value !== component && !value.skipColision;
           })
         );
-        filteredComponents.forEach((otherComponent) => {
-          if (component === otherComponent) return;
+        filteredComponents.forEach((novoComponent) => {
+          if (component === novoComponent) return;
           const a = component.getBoxColider();
-          const b = otherComponent.getBoxColider();
+          const b = novoComponent.getBoxColider();
 
           if (
             a.x < b.x + b.width &&
@@ -254,14 +244,12 @@ class Engine {
             a.y < b.y + b.height &&
             a.height + a.y > b.y
           ) {
-            component.onCollision(otherComponent);
-            otherComponent.onCollision(component);
+            component.onCollision(novoComponent);
+            novoComponent.onCollision(component);
           }
         });
       });
-     
-     
-     
+      
       Registry.getComponents().forEach((component) => {
         component.update();
         const sprite = component.getSprite();
@@ -275,7 +263,6 @@ class Engine {
             sprite.height * component.transform.scale.y
           );}
       });
-
       requestAnimationFrame(loop);
     };
 

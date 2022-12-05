@@ -1,0 +1,31 @@
+.titleGame {
+  margin-top: 26px;
+}
+
+.game {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding: 26px 48px;
+  gap: 2.875rem;
+  overflow: hidden;
+}
+
+.configs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  max-width: 440px;
+  border: 1px solid var(--gray);
+  border-radius: 8px;
+  background-color: var(--blue-900);
+  padding: 1.125rem;
+  gap: 1rem;
+}
+
+.configs>h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 1.125rem;
+}

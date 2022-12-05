@@ -1,83 +1,12 @@
-.titleGame {
-  margin-top: 26px;
-}
-
-.game {
-  display: flex;
-  height: 100%;
-  width: 100%;
-  padding: 26px 48px;
-  gap: 2.875rem;
-  border: red  5px solid;
+#riverRaid {
+  position: relative;
+  border: 3px solid var(--blue-2);
+  background: var(--background);
+  transition: background 0.2s;
   overflow: hidden;
 }
-
-.configs {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex: 1;
-  max-width: 440px;
-  border: 1px solid var(--gray);
-  border-radius: 8px;
-  background-color: var(--blue-900);
-  padding: 1.125rem;
-  gap: 1rem;
-}
-
-.configs>h1 {
-  font-size: 1.5rem;
-  text-align: center;
-  margin-bottom: 1.125rem;
-}
-
-.formLine {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.formLine span{
-  font-size: 18px;
-  flex:1;
-}
-.formLine .selects{
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  justify-content: center;
-  flex:1.5;
-  
-}
-.formLine input[type="radio"]{
-  appearance: none;
-  background-color: var(--black);
-  margin: 0;
-  font: inherit;
-  color: currentColor;
-  width: 1rem;
-  height: 1rem;
-  border: 0.15em solid var(--black);
-  border-radius: 50%;
-  transition: background 0.3s;
-}
-
-.formLine input[type="radio"]:checked{
-  background-color: var(--white);
-}
-
-.formLine input[type="text"]{
-  box-sizing: border-box;
-  color: var(--white);
-  flex:1.5;
-  background-color: var(--black);
-  border: none;
-  border-radius: 8px;
-  padding: 0.5rem 1rem;
-  transition: background 0.3s;
-}
-
-.formLine input[type="text"]:focus{
-  outline: none;
-  background-color: var(--gray);
+#agua {
+  position: absolute;
+  top: 0;
+  left: 0;
 }

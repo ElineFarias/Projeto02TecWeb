@@ -1,7 +1,4 @@
-
-![Logo do projeto](colocar link)
-
- O projeto consiste na implementação de uma releitura do tradicional jogo de Atari chamadoRiver Raid.
+  O projeto consiste na implementação de uma releitura do tradicional jogo de Atari chamadoRiver Raid.
  O jogo foi implementado utilizando apenas JavaScript, CSS e HTML.
  River Raid:
 –Jogo de rolagem;
@@ -15,6 +12,7 @@ Aqui estão as tecnologias utilizadas neste projeto.
 * HTML5 version  5.0.0
 * CSS3 version 3.0.0
 * Javascript version 1.5.0
+* Canvas
 ## Serviços usados
 
 * Github
@@ -29,11 +27,7 @@ Aqui estão as tecnologias utilizadas neste projeto.
 
 ### 1 - Ao acessar, você verá a página inicial <3
 
-![Homepage image](img)
-
-
-
-
+![Homepage image](./img/telaInicio.png)
 
 ### 2 - Contato:
 
@@ -49,8 +43,6 @@ As principais  Features do projeto são:
 
 
 ## Links
-
-  - Deploy: https://xxxxxxxxxx/
   - Repository: https://github.com/ElineFarias/Projeto02TecWeb.git
 
   ## Versão
